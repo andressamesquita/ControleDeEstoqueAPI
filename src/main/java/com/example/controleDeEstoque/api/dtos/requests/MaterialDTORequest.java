@@ -3,6 +3,8 @@ package com.example.controleDeEstoque.api.dtos.requests;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
+import com.example.controleDeEstoque.domain.models.Material;
+
 public class MaterialDTORequest {
 
 	@NotNull
@@ -18,6 +20,12 @@ public class MaterialDTORequest {
 		this.nome = nome;
 		this.precoUnitario = precoUnitario;
 		this.quantidade = quantidade;
+	}
+	
+	public Material toModel() {
+
+		Material material = new Material(nome, precoUnitario, quantidade);
+		return material;
 	}
 
 }
